@@ -60,7 +60,7 @@ export default function Chat({
           <ChatMessage
             key="key"
             role="assistant"
-            content="Hello! How can I assist you today?"
+            content="Hola, en qué puedo ayudarte?"
           />
         }
         {messages.map((msg, index) => (
@@ -78,14 +78,14 @@ export default function Chat({
           className="flex-grow mr-3 bg-[#efefef] py-4 px-6 rounded-3xl border-2 border-transparent border-solid text-base"
           value={input}
           onChange={handleInputChange}
-          placeholder="Enter your question"
+          placeholder="Pregunta"
         />
         <Button
           type="submit"
           className="py-2 px-6 text-base rounded-3xl"
           disabled={status !== "awaiting_message"}
         >
-          Send
+          Enviar
         </Button>
       </form>
     </div>

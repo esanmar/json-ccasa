@@ -54,8 +54,7 @@ export default function FileViewer() {
       >
         {files.length === 0 ? (
           <div className="font-semibold text-lg">
-            Attach files to test file search
-          </div>
+Añade un fichero para hacer búsquedas          </div>
         ) : (
           files.map((file: any) => (
             <div
@@ -94,8 +93,7 @@ export default function FileViewer() {
           htmlFor="file-upload"
           className="bg-black text-white py-2 px-6 rounded-3xl text-center inline-block cursor-pointer"
         >
-          Attach files
-        </Label>
+Añadir Ficheros        </Label>
         <Input
           type="file"
           multiple

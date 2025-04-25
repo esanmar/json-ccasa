@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 const fontSans = FontSans({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "CCASA",
+  title: "CCASA - JSON Search",
   description: "",
 };
 

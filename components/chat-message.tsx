@@ -3,6 +3,7 @@ import { Message } from "ai/react";
 import remarkGfm from "remark-gfm";
 
 
+
 const UserMessage = ({ text }: { text: string | undefined }) => {
   return (
     <div className="text-white bg-black self-end py-2 px-4 rounded-3xl">

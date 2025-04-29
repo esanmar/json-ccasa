@@ -77,27 +77,45 @@ export async function POST(req: Request) {
               const parameters = JSON.parse(toolCall.function.arguments);
 
               switch (toolCall.function.name) {
-                case "get_weather":
-                  const data = getWeather(parameters.location);
+  case "get_weather":
+    const weatherData = getWeather(parameters.location);
 
-                  sendDataMessage({
-                    id: toolCall.id,
-                    role: "data",
-                    data: data,
-                  });
+    sendDataMessage({
+      id: toolCall.id,
+      role: "data",
+      data: weatherData,
+    });
 
-                  return {
-                    tool_call_id: toolCall.id,
-                    output: JSON.stringify(data),
-                  };
+    return {
+      tool_call_id: toolCall.id,
+      output: JSON.stringify(weatherData),
+    };
 
-                default:
-                  throw new Error(
-                    `Unknown tool call function: ${toolCall.function.name}`
-                  );
-              }
-            }
-          );
+  case "mostrar_tramites":
+    // ⚠️ Aquí deberías generar los datos reales basados en el JSON
+    // Por ahora, devolvemos uno simulado como ejemplo
+    const tramites = [
+      {
+        codProcedimiento: 5192,
+        titulo: "Álava Innova - Digitaliza Hijo",
+        finalidad: "Promover la innovación...",
+        friendlyUrl: "/alava-innova",
+        ente: "Diputación Foral de Álava",
+        nivel1Tema: "Desarrollo económico",
+        claseTramite: "Ayudas y subvenciones",
+        descripcionPlazo: "Abierto el plazo",
+      }
+    ];
+
+    return {
+  tool_call_id: toolCall.id,
+  output: JSON.stringify(parameters), // los mismos que el modelo ha generado
+};
+  default:
+    throw new Error(
+      `Unknown tool call function: ${toolCall.function.name}`
+    );
+}
 
         runResult = await forwardStream(
           openai.beta.threads.runs.submitToolOutputsStream(
